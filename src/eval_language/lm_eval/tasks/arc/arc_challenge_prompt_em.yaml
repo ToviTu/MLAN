@@ -1,0 +1,3 @@
+include: arc_easy_prompt_em.yaml
+task: arc_challenge_prompt_em
+dataset_name: ARC-Challenge

@@ -1,0 +1,19 @@
+task: cosmosqa
+dataset_path: Samsoup/cosmos_qa
+dataset_name: null
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+doc_to_text: !function helper.cosmosqa_prompt
+doc_to_target: !function helper.doc_to_target
+doc_to_choice: !function helper.doc_to_choice
+doc_to_decontamination_query: "{{context}}\nQuestion: {{question}}\nAnswer:"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

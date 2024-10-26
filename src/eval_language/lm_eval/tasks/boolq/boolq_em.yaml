@@ -1,0 +1,30 @@
+tag:
+  - boolq
+task: boolq_em
+dataset_path: google/boolq
+output_type: generate_until
+training_split: train
+validation_split: validation
+doc_to_text: !function helper.boolq_prompt
+doc_to_target: !function helper.doc_to_target
+generation_kwargs:
+  until:
+    - 'User:'
+    - '"'
+    - ':'
+    - ','
+    - '.'
+should_decontaminate: true
+doc_to_decontamination_query: passage
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+metadata:
+  version: 2.0
+num_fewshot: 0
+filter_list:
+  - name: "custom_filter_pipeline"
+    filter:
+      - function: true_false_conversion
