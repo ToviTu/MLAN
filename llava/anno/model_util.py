@@ -13,7 +13,6 @@ from huggingface_hub import hf_hub_download
 from transformers import AutoTokenizer, LlamaForCausalLM
 import subprocess
 
-HF_TOKEN = "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"
 
 # class OFlamingo(nn.Module):
 
