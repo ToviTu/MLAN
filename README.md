@@ -4,11 +4,11 @@
 
 ## 💡 Introduction
 
-MLAN explores a language-heavy approach in visual instruction-tuning, 
-which enables fine-tuned language model to excel in both vision-language and language-only tasks.
+MLAN explores a language-heavy approach in visual instruction tuning, 
+which enables finetuned language models to excel in both vision-language and language-only tasks.
 Our empirical experiments find that: 
-(1) fine-tuning on pure visual instruction data does not yield the best performance on unseen benchmarks.
-(2) language instruction-following abilities can be efficiently transfered to the vision domain by substituting only ~10% of the language data with visual data.
+(1) finetuning on pure visual instruction data does not yield the best performance on unseen benchmarks.
+(2) language instruction-following abilities can be efficiently transfered to the vision domain by substituting as low as ~10% of the language data with visual data.
 A key advantage of primarily using language-only data is the significantly decreased training cost 
 thanks to the vastly reduced use of token-rich image inputs.
 
@@ -35,15 +35,15 @@ pip install git+https://github.com/ZhuohaoNi/lm_eval.git
 pip install git+https://github.com/ToviTu/lmms-eval.git@llava_plain
 ```
 
-## 📖 Data Preperation
+## 📖 Data Preparation
 
-The text and image data can be accessed directly through our Huggingface repository. You should download them into the `playground/data` folder. The following script automatically downloads the pretraining and finetuning data into the `playground/data` for you.
+The text and image data can be accessed directly through our Huggingface repository. You should download them into the `playground/data` folder. The following script automatically downloads the pretraining and finetuning data into `playground/data` for you.
 
 ```
 bash scripts/prepare_data.sh 
 ```
 
-[MLAN_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction-tuning data collected from public datasets.
+[MLAN_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction tuning data collected from public datasets.
 
 [MLAN_v_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_v_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data.
 
@@ -51,9 +51,10 @@ bash scripts/prepare_data.sh
 
 ## 🏋️‍♂️ Train
 
-MLAN training consists of 2 phases: 
-(1) feature alignment: we use the LLaVA-CC3M-Pretrain-595K to make the visual encoder outputs comptatible with the base language model.
-(2) supervised fine-tuning: use our MLAN_80k or MLAN_v_80k to instruction-tune the language model and the projector.
+MLAN training consists of 2 phases:
+
+1. Feature alignment: we use LLaVA-CC3M-Pretrain-595K to make the visual encoder outputs comptatible with the base language model.
+2. Supervised finetuning: we use our MLAN_80k or MLAN_v_80k to instruction tune the language model and the projector.
 
 ### Pretraining
 
@@ -65,7 +66,7 @@ bash scripts/pretrain.sh
 
 ### Instruction Tuning
 
-Thanks to the reduced usage of image inputs, MLAN takes under 1 hour and MLAN_v takes under 2 hours on 8xA6000. 
+Thanks to the reduced usage of image inputs, finetuning with MLAN takes under 1 hour and with MLAN_v takes under 2 hours on 8xA6000. 
 
 ```
 bash scripts/finetune.sh
@@ -73,9 +74,9 @@ bash scripts/finetune.sh
 
 ## 📝 Evaluation
 
-Our testing environments are built upon lm-eval and lmms-eval platforms, for language-only and vision-language tasks respectively. We use customized answer parsers to extract short answers. Take a look at the task definitions written in `scripts/eval/custom` directory. 
+Our testing environments are built upon lm-eval and lmms-eval platforms, for language-only and vision-language tasks respectively. We use customized answer parsers to extract short answers. Take a look at the task definitions written in the `scripts/eval/custom` directory for more information.
 
-To run evaluation, use the following commands
+To evaluate on the datasets used in our paper, run the following commands
 ```
 bash scripts/eval/lm-eval
 bash scripts/eval/lmm-eval
