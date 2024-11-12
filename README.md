@@ -37,7 +37,11 @@ pip install git+https://github.com/ToviTu/lmms-eval.git@llava_plain
 
 ## 📖 Data Preperation
 
-The text and image data can be accessed directly through our Huggingface repository. You should download them into the `playground/data` folder. 
+The text and image data can be accessed directly through our Huggingface repository. You should download them into the `playground/data` folder. The following script automatically downloads the pretraining and finetuning data into the `playground/data` for you.
+
+```
+bash scripts/prepare_data.sh 
+```
 
 [MLAN_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction-tuning data collected from public datasets.
 
