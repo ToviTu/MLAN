@@ -3,11 +3,20 @@
 WORKING_DIR=$PWD
 STORAGE_DIR=$PWD
 
+# Local Models
+
 MODEL=${STORAGE_DIR}/models/llava-mlan-vicuna-7b
 MODEL=${STORAGE_DIR}/models/llava-mlan-v-llama2-7b
 
+# HuggingFace Checkpoints
+
+MODEL=ToviTu/llava-mlan-vicuna-7b
+MODEL=ToviTu/llava-mlan-llama2-7b
+MODEL=ToviTu/llava-mlan-v-vicuna-7b
+MODEL=ToviTu/llava-mlan-v-llama2-7b
+
 #---------------------------------------------------------
-# Tasks (Specify one in TASK below)
+# Tasks (Specify one or all in TASK below)
 #---------------------------------------------------------
 
 FOLDER=l_eval

@@ -45,7 +45,9 @@ bash scripts/prepare_data.sh
 
 [MLAN_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction tuning data collected from public datasets.
 
-[MLAN_v_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_v_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data.
+[MLAN_v_50l_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_v_50l_80k.json): contains 40k **language-only** and 40k **vision-language** instruction following data for Vicuna series models.
+
+[MLAN_v_88l_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_v_88l_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data for pretrained LLaMA2 models.
 
 [images_mlan_v](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/images_mlan_v.zip): contains the corresponding images for MLAN_v_80k.
 
@@ -71,6 +73,20 @@ Thanks to the reduced usage of image inputs, finetuning with MLAN takes under 1 
 ```
 bash scripts/finetune.sh
 ```
+
+## 💾 Checkpoints
+
+For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fine-tuned with MLAN and MLAN_v on our huggingface repo.
+
+| Model                  | Link                                                 |
+| ---------------------- | ---------------------------------------------------- |
+| llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
+| llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
+| llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
+| llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
+
+Or you may directly specify `MODEL=ToviTu/llava-mlan-llama2-7b` in the evaluation script and it will automatically download the weights.
+
 
 ## 📝 Evaluation
 
