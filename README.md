@@ -78,12 +78,12 @@ bash scripts/finetune.sh
 
 For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fine-tuned with MLAN and MLAN_v on our huggingface repo.
 
-| Model                  | Link                                                 |
-| ---------------------- | ---------------------------------------------------- |
-| llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
-| llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
-| llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
-| llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b> |
+| Model                  | Link                                                   |
+| ---------------------- | -------------------------------------------------------|
+| llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b>   |
+| llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-vicuna-7b>   |
+| llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-v-llama2-7b> |
+| llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-v-vicuna-7b> |
 
 Or you may directly specify `MODEL=ToviTu/llava-mlan-llama2-7b` in the evaluation script and it will automatically download the weights.
 
