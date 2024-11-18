@@ -64,7 +64,7 @@ def prompt_llava_plain(input, model_specific_prompt_kwargs=None):
     question = prepare_input(input)
 
     question_prompt = 'Please answer with "yes" or "no":' + "\n" + question + "\n"
-    question_prompt = "<image>\n" + question_prompt
+    #question_prompt = "<image>\n" + question_prompt
     conv = conv_templates['v1'].copy()
     conv.append_message(conv.roles[0], question_prompt)
     conv.append_message(conv.roles[1], None)
