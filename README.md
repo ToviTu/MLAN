@@ -1,6 +1,6 @@
 # MLAN: Language-Based Instruction Tuning Improves Zero-Shot Generalization of Multimodal Large Language Models
 
-[MLAN Arxiv]() / [MLAN Huggingface](https://huggingface.co/collections/WangResearchLab/mlan-673be70728a904fca2c2a661) 
+[MLAN arxiv](https://arxiv.org/abs/2411.10557) / [MLAN Huggingface](https://huggingface.co/collections/WangResearchLab/mlan-673be70728a904fca2c2a661) 
 
 ## 💡 Introduction
 
@@ -100,11 +100,14 @@ MODEL={MODEL_NAME} bash scripts/eval/lmm-eval.sh
 
 ## Citations
 ```
-@article{name_pending,
-  title={title_pending},
-  author={author_pending},
-  journal={arXiv preprint arXiv:2406.04325},
-  year={2024}
+@misc{tu2024mlan,
+      title={MLAN: Language-Based Instruction Tuning Improves Zero-Shot Generalization of Multimodal Large Language Models}, 
+      author={Jianhong Tu and Zhuohao Ni and Nicholas Crispino and Zihao Yu and Michael Bendersky and Beliz Gunel and Ruoxi Jia and Xin Liu and Lingjuan Lyu and Dawn Song and Chenguang Wang},
+      year={2024},
+      eprint={2411.10557},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2411.10557}, 
 }
 ```
 
