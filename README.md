@@ -1,6 +1,6 @@
 # MLAN: Language-Based Instruction Tuning Improves Zero-Shot Generalization of Multimodal Large Language Models
 
-[MLAN arxiv]() / [MLAN Huggingface](https://huggingface.co/datasets/ToviTu/MLAN) 
+[MLAN Arxiv]() / [MLAN Huggingface](https://huggingface.co/collections/WangResearchLab/mlan-673be70728a904fca2c2a661) 
 
 ## 💡 Introduction
 
@@ -18,7 +18,7 @@ Our training code is built upon the [LLaVA repo](https://github.com/haotian-liu/
 
 1. Clone this repository
 ```
-git clone https://github.com/ToviTu/MLAN.git
+git clone https://github.com/WangResearchLab/mlan.git
 cd MLAN
 ```
 
@@ -43,13 +43,13 @@ The text and image data can be accessed directly through our Huggingface reposit
 bash scripts/prepare_data.sh 
 ```
 
-[MLAN_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction tuning data collected from public datasets.
+[MLAN_80k](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction tuning data collected from public datasets.
 
-[MLAN_v_50l_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_v_50l_80k.json): contains 40k **language-only** and 40k **vision-language** instruction following data for Vicuna series models.
+[MLAN_v_50l_80k](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/MLAN_v_50l_80k.json): contains 40k **language-only** and 40k **vision-language** instruction following data for Vicuna series models.
 
-[MLAN_v_88l_80k](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/MLAN_v_88l_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data for pretrained LLaMA2 models.
+[MLAN_v_88l_80k](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/MLAN_v_88l_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data for pretrained LLaMA2 models.
 
-[images_mlan_v](https://huggingface.co/datasets/ToviTu/MLAN/resolve/main/images_mlan_v.zip): contains the corresponding images for MLAN_v_80k.
+[images_mlan_v](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/images_mlan_v.zip): contains the corresponding images for MLAN_v_80k.
 
 ## 🏋️‍♂️ Train
 
@@ -80,12 +80,12 @@ For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fin
 
 | Setting        | Model                  | Link                                                   |
 | -------------- | ---------------------- | -------------------------------------------------------|
-MLAN (Llama 2) | llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b>   |
-MLAN (Vicuna) | llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-vicuna-7b>   |
-MLAN_v (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-v-llama2-7b> |
-MLAN_v (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-v-vicuna-7b> |
+MLAN (Llama 2) | llava-mlan-llama2-7b   | <https://huggingface.co/WangResearchLab/llava-mlan-llama2-7b>   |
+MLAN (Vicuna) | llava-mlan-vicuna-7b   | <https://huggingface.co/WangResearchLab/llava-mlan-vicuna-7b>   |
+MLAN_v (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/WangResearchLab/llava-mlan-v-llama2-7b> |
+MLAN_v (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/WangResearchLab/llava-mlan-v-vicuna-7b> |
 
-When you directly specify the model in the evaluation script (e.g., `MODEL=ToviTu/llava-mlan-llama2-7b`), it will automatically download the weights. Note for this to work, you may need to use huggingface-cli to login prior to running the evaluation scripts.
+When you directly specify the model in the evaluation script (e.g., `MODEL=WangResearchLab/llava-mlan-llama2-7b`), it will automatically download the weights. Note for this to work, you may need to use huggingface-cli to login prior to running the evaluation scripts.
 
 
 ## 📝 Evaluation
