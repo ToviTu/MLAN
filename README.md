@@ -82,8 +82,8 @@ For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fin
 | -------------- | ---------------------- | -------------------------------------------------------|
 MLAN (Llama 2) | llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b>   |
 MLAN (Vicuna) | llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-vicuna-7b>   |
-MLAN$_v$ (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-v-llama2-7b> |
-MLAN$_v$ (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-v-vicuna-7b> |
+MLAN_v (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-v-llama2-7b> |
+MLAN_v (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-v-vicuna-7b> |
 
 When you directly specify the model in the evaluation script (e.g., `MODEL=ToviTu/llava-mlan-llama2-7b`), it will automatically download the weights. Note for this to work, you may need to use huggingface-cli to login prior to running the evaluation scripts.
 
