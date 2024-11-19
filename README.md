@@ -78,24 +78,24 @@ bash scripts/finetune.sh
 
 For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fine-tuned with MLAN and MLAN_v on our huggingface repo.
 
-| Model                  | Link                                                   |
-| ---------------------- | -------------------------------------------------------|
-| llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b>   |
-| llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-vicuna-7b>   |
-| llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-v-llama2-7b> |
-| llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-v-vicuna-7b> |
+| Setting        | Model                  | Link                                                   |
+| -------------- | ---------------------- | -------------------------------------------------------|
+MLAN (Llama 2) | llava-mlan-llama2-7b   | <https://huggingface.co/ToviTu/llava-mlan-llama2-7b>   |
+MLAN (Vicuna) | llava-mlan-vicuna-7b   | <https://huggingface.co/ToviTu/llava-mlan-vicuna-7b>   |
+MLAN$_v$ (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/ToviTu/llava-mlan-v-llama2-7b> |
+MLAN$_v$ (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/ToviTu/llava-mlan-v-vicuna-7b> |
 
-Or you may directly specify `MODEL=ToviTu/llava-mlan-llama2-7b` in the evaluation script and it will automatically download the weights.
+When you directly specify the model in the evaluation script (e.g., `MODEL=ToviTu/llava-mlan-llama2-7b`), it will automatically download the weights. Note for this to work, you may need to use huggingface-cli to login prior to running the evaluation scripts.
 
 
 ## 📝 Evaluation
 
-Our testing environments are built upon lm-eval and lmms-eval platforms, for language-only and vision-language tasks respectively. We use customized answer parsers to extract short answers. Take a look at the task definitions written in the `scripts/eval/custom` directory for more information.
+Our testing environments are built upon lm-eval and lmms-eval platforms, for language-only and vision-language tasks respectively. We use customized answer parsers to extract short answers. Take a look at the task definitions written in the `scripts/eval/custom` directory for more information. Note that evaluation scripts by default run on only one GPU and thus may take long (~1 hour) to complete with the default settings.
 
-To evaluate on the datasets used in our paper, run the following commands
+To evaluate on the datasets used in our paper, run the following commands with the desired model:
 ```
-bash scripts/eval/lm-eval
-bash scripts/eval/lmm-eval
+MODEL={MODEL_NAME} bash scripts/eval/lm-eval.sh
+MODEL={MODEL_NAME} bash scripts/eval/lmm-eval.sh
 ```
 
 ## Citations

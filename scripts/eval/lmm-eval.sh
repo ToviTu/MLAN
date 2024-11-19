@@ -1,19 +1,19 @@
 #! /bin/bash
 
 WORKING_DIR=$PWD
-STORAGE_DIR=$PWD
+# STORAGE_DIR=$PWD
 
 # Local Models
 
-MODEL=${STORAGE_DIR}/models/llava-mlan-vicuna-7b
-MODEL=${STORAGE_DIR}/models/llava-mlan-v-llama2-7b
+# MODEL=${STORAGE_DIR}/models/llava-mlan-vicuna-7b
+# MODEL=${STORAGE_DIR}/models/llava-mlan-v-llama2-7b
 
 # HuggingFace Checkpoints
 
-MODEL=ToviTu/llava-mlan-vicuna-7b
-MODEL=ToviTu/llava-mlan-llama2-7b
-MODEL=ToviTu/llava-mlan-v-vicuna-7b
-MODEL=ToviTu/llava-mlan-v-llama2-7b
+# MODEL=ToviTu/llava-mlan-vicuna-7b
+# MODEL=ToviTu/llava-mlan-llama2-7b
+# MODEL=ToviTu/llava-mlan-v-vicuna-7b
+# MODEL=ToviTu/llava-mlan-v-llama2-7b
 
 #---------------------------------------------------------
 # Tasks (Specify one or all in TASK below)
@@ -33,5 +33,4 @@ python -m accelerate.commands.launch \
         --include_path ${WORKING_DIR}/scripts/eval/custom/ \
         --tasks $TASK \
         --batch_size 1 \
-        --output_path ${WORKING_DIR}/playground/${FOLDER} \
-        --limit 100
+        --output_path ${WORKING_DIR}/playground/${FOLDER}
