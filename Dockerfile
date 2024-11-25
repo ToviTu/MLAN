@@ -50,7 +50,7 @@ RUN pip install -e ".[train]"
 RUN pip install flash-attn --no-build-isolation
 
 # Install lm-eval
-RUN pip install git+https://github.com/ZhuohaoNi/lm_eval.git
+RUN pip install pip install <link-to-modified-lm-eval>
 
 # Install lmm-eval
-RUN pip install git+https://github.com/ToviTu/lmms-eval.git@llava_plain
+RUN pip install pip install <link-to-modified-lmms-eval>
