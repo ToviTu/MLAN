@@ -8,6 +8,7 @@ WORKING_DIR=$PWD
 
 FOLDER=vl_eval
 TASK="realworldqa_llava_plain,ai2d_llava_plain,pope_llava_plain,gqa_llava_plain,sciq_llava_plain"
+MODEL="account/llava-mlan-llama2-7b" 
 
 # Run command
 echo "Running evaluation on model: $MODEL with task: $TASK"

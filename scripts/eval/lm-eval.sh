@@ -7,7 +7,8 @@ WORKING_DIR=$PWD
 #---------------------------------------------------------
 
 FOLDER=l_eval
-TASK="race_em,openbookqa_em,boolq_em,hellaswag_em"  
+TASK="race_em,openbookqa_em,boolq_em,hellaswag_em"
+MODEL="account/llava-mlan-llama2-7b"  
 
 # Run command
 echo "Running evaluation on model: $MODEL with task: $TASK"

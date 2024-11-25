@@ -1,7 +1,5 @@
 # MLAN: Language-Based Instruction Tuning Improves Zero-Shot Generalization of Multimodal Large Language Models
 
-[MLAN arxiv](https://arxiv.org/abs/2411.10557) / [MLAN Huggingface](https://huggingface.co/collections/WangResearchLab/mlan-673be70728a904fca2c2a661) 
-
 ## 💡 Introduction
 
 MLAN explores a language-heavy approach in visual instruction tuning, 
@@ -18,7 +16,7 @@ Our training code is built upon the [LLaVA repo](https://github.com/haotian-liu/
 
 1. Clone this repository
 ```
-git clone https://github.com/WangResearchLab/mlan.git
+git clone <link-to-this-repo>
 cd MLAN
 ```
 
@@ -29,27 +27,27 @@ pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
 
-3. Install our modified evaluation packages
+3. Install our modified evaluation packages. The exact links will be supplied in the official repo.
 ```
-pip install git+https://github.com/ZhuohaoNi/lm_eval.git
-pip install git+https://github.com/ToviTu/lmms-eval.git@llava_plain
+pip install <link-to-modified-lm-eval>
+pip install <link-to-modified-lmms-eval>
 ```
 
 ## 📖 Data Preparation
 
-The text and image data can be accessed directly through our Huggingface repository. You should download them into the `playground/data` folder. The following script automatically downloads the pretraining and finetuning data into `playground/data` for you.
+The text and image data can be accessed directly through our Huggingface repository. You should download them into the `playground/data` folder. The following script automatically downloads the pretraining and finetuning data into `playground/data` for you. The datasets will be availble on Huggingface.
 
 ```
 bash scripts/prepare_data.sh 
 ```
 
-[MLAN_80k](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction tuning data collected from public datasets.
+[MLAN_80k](https://huggingface.co/datasets/account/MLAN/resolve/main/MLAN_80k.json): contains 80k **language-only** instruction tuning data collected from public datasets.
 
-[MLAN_v_50l_80k](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/MLAN_v_50l_80k.json): contains 40k **language-only** and 40k **vision-language** instruction following data for Vicuna series models.
+[MLAN_v_50l_80k](https://huggingface.co/datasets/account/MLAN/resolve/main/MLAN_v_50l_80k.json): contains 40k **language-only** and 40k **vision-language** instruction following data for Vicuna series models.
 
-[MLAN_v_88l_80k](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/MLAN_v_88l_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data for pretrained LLaMA2 models.
+[MLAN_v_88l_80k](https://huggingface.co/datasets/account/MLAN/resolve/main/MLAN_v_88l_80k.json): contains 70k **language-only** and 10k **vision-language** instruction following data for pretrained LLaMA2 models.
 
-[images_mlan_v](https://huggingface.co/datasets/WangResearchLab/MLAN/resolve/main/images_mlan_v.zip): contains the corresponding images for MLAN_v_80k.
+[images_mlan_v](https://huggingface.co/datasets/account/MLAN/resolve/main/images_mlan_v.zip): contains the corresponding images for MLAN_v_80k.
 
 ## 🏋️‍♂️ Train
 
@@ -76,16 +74,16 @@ bash scripts/finetune.sh
 
 ## 💾 Checkpoints
 
-For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fine-tuned with MLAN and MLAN_v on our huggingface repo.
+For evaluation purposes, we release our checkpoints for Llama2 and Vicuna1.5 fine-tuned with MLAN and MLAN_v on our huggingface repo. The actual checkpoints will be available afte the review period.
 
 | Setting        | Model                  | Link                                                   |
 | -------------- | ---------------------- | -------------------------------------------------------|
-MLAN (Llama 2) | llava-mlan-llama2-7b   | <https://huggingface.co/WangResearchLab/llava-mlan-llama2-7b>   |
-MLAN (Vicuna) | llava-mlan-vicuna-7b   | <https://huggingface.co/WangResearchLab/llava-mlan-vicuna-7b>   |
-MLAN_v (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/WangResearchLab/llava-mlan-v-llama2-7b> |
-MLAN_v (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/WangResearchLab/llava-mlan-v-vicuna-7b> |
+MLAN (Llama 2) | llava-mlan-llama2-7b   | <https://huggingface.co/account/llava-mlan-llama2-7b>   |
+MLAN (Vicuna) | llava-mlan-vicuna-7b   | <https://huggingface.co/account/llava-mlan-vicuna-7b>   |
+MLAN_v (Llama 2) | llava-mlan-v-llama2-7b | <https://huggingface.co/account/llava-mlan-v-llama2-7b> |
+MLAN_v (Vicuna) | llava-mlan-v-vicuna-7b | <https://huggingface.co/account/llava-mlan-v-vicuna-7b> |
 
-When you directly specify the model in the evaluation script (e.g., `MODEL=WangResearchLab/llava-mlan-llama2-7b`), it will automatically download the weights. Note for this to work, you may need to use huggingface-cli to login prior to running the evaluation scripts.
+When you directly specify the model in the evaluation script (e.g., `MODEL=account/llava-mlan-llama2-7b`), it will automatically download the weights. Note for this to work, you may need to use huggingface-cli to login prior to running the evaluation scripts.
 
 
 ## 📝 Evaluation
@@ -96,19 +94,6 @@ To evaluate on the datasets used in our paper, run the following commands with t
 ```
 MODEL={MODEL_NAME} bash scripts/eval/lm-eval.sh
 MODEL={MODEL_NAME} bash scripts/eval/lmm-eval.sh
-```
-
-## Citations
-```
-@misc{tu2024mlan,
-      title={MLAN: Language-Based Instruction Tuning Improves Zero-Shot Generalization of Multimodal Large Language Models}, 
-      author={Jianhong Tu and Zhuohao Ni and Nicholas Crispino and Zihao Yu and Michael Bendersky and Beliz Gunel and Ruoxi Jia and Xin Liu and Lingjuan Lyu and Dawn Song and Chenguang Wang},
-      year={2024},
-      eprint={2411.10557},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2411.10557}, 
-}
 ```
 
 # Acknowledgement
