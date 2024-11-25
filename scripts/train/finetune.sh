@@ -13,14 +13,26 @@ WORKING_DIR=$PWD
 # Change the storage dir as appropriate
 STORAGE_DIR=$PWD
 
+# Data choices
+
+PRETRAINED_MODEL=llava-llama2-7b-pretrain
+TEXT_DATA=MLAN_v_80k.json
+IMAGE_DATA=images_mlan_v
+MODEL=llava-mlan-v-llama2-7b
+
+# PRETRAINED_MODEL=llava-vicuna-7b-pretrain
+# TEXT_DATA=MLAN_80k.json
+# IMAGE_DATA=images_mlan_v
+# MODEL=llava-mlan-vicuna-7b
+
 deepspeed --master_port=6100 \
     --include=localhost:0,1,2,3,4,5,6,7 \
     ${WORKING_DIR}/llava/train/train_mem.py \
     --deepspeed ${WORKING_DIR}/scripts/config/zero3.json \
-    --model_name_or_path ${STORAGE_DIR}/models/llava-vicuna-7b-pretrain-fb \
+    --model_name_or_path ${STORAGE_DIR}/playground/models/${PRETRAINED_MODEL} \
     --version v1 \
-    --data_path ${STORAGE_DIR}/datasets/llava/Mix_llava_train_flan-875l.json \
-    --image_folder ${STORAGE_DIR}/datasets/llava/images_vit \
+    --data_path ${STORAGE_DIR}/playground/data/llava/${TEXT_DATA} \
+    --image_folder ${STORAGE_DIR}/playground/data/${IMAGE_DATA} \
     --vision_tower openai/clip-vit-large-patch14-336 \
     --mm_projector_type mlp2x_gelu \
     --freeze_backbone False \
@@ -33,7 +45,7 @@ deepspeed --master_port=6100 \
     --seed $SEED \
     --group_by_modality_length True \
     --bf16 True \
-    --output_dir ${STORAGE_DIR}/models/llava-vicuna-7b-mix-flan-875l \
+    --output_dir ${STORAGE_DIR}/playground/models/${MODEL} \
     --num_train_epochs 1 \
     --per_device_train_batch_size 8 \
     --per_device_eval_batch_size 4 \

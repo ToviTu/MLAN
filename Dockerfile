@@ -1,5 +1,5 @@
 # Start from a PyTorch image with CUDA
-FROM pytorch/pytorch:2.1.2-cuda11.8-cudnn8-runtime
+FROM pytorch/pytorch:2.1.2-cuda11.8-cudnn8-devel
 
 ENV DEBIAN_FRONTEND noninteractive
 # Flash-attn work around @ https://github.com/Dao-AILab/flash-attention/issues/509
